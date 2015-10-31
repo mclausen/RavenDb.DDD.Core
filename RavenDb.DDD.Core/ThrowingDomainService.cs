@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using RavenDb.DDD.Core.Events;
 
 namespace RavenDb.DDD.Core
 {

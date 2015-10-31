@@ -1,4 +1,4 @@
-﻿namespace RavenDb.DDD.Core
+﻿namespace RavenDb.DDD.Core.Events
 {
     public interface IDomainEvent {}
 }

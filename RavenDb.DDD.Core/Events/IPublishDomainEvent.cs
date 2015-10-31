@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace RavenDb.DDD.Core
+namespace RavenDb.DDD.Core.Events
 {
     /// <summary>
     /// Publishes domain event
