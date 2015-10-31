@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace RavenDb.DDD.Core
 {
@@ -18,9 +19,9 @@ namespace RavenDb.DDD.Core
             }
         }
 
-        public static TAggregateRoot Load<TAggregateRoot>(string aggregateRootId) where TAggregateRoot : AggregateRoot
+        public static Task<TAggregateRoot> LoadAsync<TAggregateRoot>(string aggregateRootId) where TAggregateRoot : AggregateRoot
         {
-            return Current.LoadAggregateRoot<TAggregateRoot>(aggregateRootId);
+            return Current.LoadAggregateRootAsync<TAggregateRoot>(aggregateRootId);
         }
     }
 }

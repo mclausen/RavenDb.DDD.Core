@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace RavenDb.DDD.Core
 {
@@ -17,14 +18,14 @@ namespace RavenDb.DDD.Core
             CanLoad = true;
         }
 
-        public TAggregateRoot Load
+        public Task<TAggregateRoot> LoadAsync
         {
             get
             {
                 if(CanLoad  == false || string.IsNullOrWhiteSpace(Id))
                     throw new InvalidOperationException($"Cannot Load Reference {Id}");
 
-                return AggregateRootLoader.Load<TAggregateRoot>(Id);
+                return AggregateRootLoader.LoadAsync<TAggregateRoot>(Id);
             }
         } 
 

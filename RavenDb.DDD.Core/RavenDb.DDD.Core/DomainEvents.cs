@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace RavenDb.DDD.Core
 {
@@ -21,9 +22,9 @@ namespace RavenDb.DDD.Core
             }
         }
 
-        public static void Publish<TDomainEvent>(TDomainEvent domainEvent) where TDomainEvent : IDomainEvent
+        public static Task Publish<TDomainEvent>(TDomainEvent domainEvent) where TDomainEvent : IDomainEvent
         {
-            Current = _current;
+            return Current.Publish(domainEvent);
         }
     }
 }

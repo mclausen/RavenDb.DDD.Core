@@ -1,4 +1,6 @@
-﻿namespace RavenDb.DDD.Core
+﻿using System.Threading.Tasks;
+
+namespace RavenDb.DDD.Core
 {
     /// <summary>
     /// Handle domain event
@@ -6,6 +8,6 @@
     /// <typeparam name="TDomainEvent"></typeparam>
     public interface ISubscribeTo<in TDomainEvent> where TDomainEvent : IDomainEvent
     {
-        void Handle(TDomainEvent domainEvent);
+        Task Handle(TDomainEvent domainEvent);
     }
 }

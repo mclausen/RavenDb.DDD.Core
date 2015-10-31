@@ -1,4 +1,6 @@
-﻿namespace RavenDb.DDD.Core
+﻿using System.Threading.Tasks;
+
+namespace RavenDb.DDD.Core
 {
     public interface ILoadAggregateRoot
     {
@@ -8,6 +10,6 @@
         /// <typeparam name="TAggregateRoot"></typeparam>
         /// <param name="aggregateRootId"></param>
         /// <returns>Instance of <see cref="AggregateRoot"/></returns>
-        TAggregateRoot LoadAggregateRoot<TAggregateRoot>(string aggregateRootId) where TAggregateRoot : AggregateRoot;
+        Task<TAggregateRoot> LoadAggregateRootAsync<TAggregateRoot>(string aggregateRootId) where TAggregateRoot : AggregateRoot;
     }
 }
