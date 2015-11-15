@@ -10,6 +10,20 @@ This project contains core classes and domain services to quickly start modellin
 
 #Setting up AggregateRootLoader
 
+*step 1. Implement `ILoadAggregateRoot`
+	class MyAggregateRootLoader : ILoadAggregateRoot 
+	{
+		public Task<TAggregateRoot> LoadAggregateRootAsync<TAggregateRoot>(string aggregateRootId)
+		{
+			var currentSession = ... (get current session);
+			await currentSettion.LoadAsync<TAggregateRoot>(aggregateRootId);
+		}
+	}
+
+*step 2. Set static `AggregateRootLoader`
+
+	AggregateRootLoader.Current = new MyAggregateRootLoader(...)
+
 #Setting up DomainEvents
 Domain events are base upon Udi Dahans [Domain Events](http://udidahan.com/2009/06/14/domain-events-salvation/).
 
@@ -25,9 +39,10 @@ Here is an example using CastleWindsor
 
 *Step 2. Event publishing
 
-
 	class MyEventPublisher : IPublishDomainEvent
 	{
+		IContainer container;
+
 		public async Task Publish<TDomainEvent>(TDomainEvent domainEvent)
 		{
 			var handlers = container.ResolveAll<ISubscribeTo<TDomainEvent>>();
@@ -40,6 +55,9 @@ Here is an example using CastleWindsor
 		}
 	}
 
+*Step 3. Set static DomainEvents
+	
+	DomainEvents.Current = new MyEventPublisher(container);
 
 #Reference
 `Reference` is use to store a path to another aggregate root
