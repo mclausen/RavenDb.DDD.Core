@@ -17,14 +17,15 @@ In order to support these event types a `IPublishDomainEvent` must be configured
 Here is an example using CastleWindsor
 
 *Step 1. Register 'ISubscribeTo' classes
-
+`
 container.Register(Classes.FromAssembly(...)
 					.BasedOn(typeof(ISubscribeTo<>)
 					.WithServiceAllInterfaces()
 					.LifeStyleTransient())
-
+`
 *Step 2. Event publishing
 
+`
 class MyEventPublisher : IPublishDomainEvent
 {
 	public async Task Publish<TDomainEvent>(TDomainEvent domainEvent)
@@ -38,7 +39,7 @@ class MyEventPublisher : IPublishDomainEvent
 		}
 	}
 }
-
+`
 
 #Reference
 `Reference` is use to store a path to another aggregate root
