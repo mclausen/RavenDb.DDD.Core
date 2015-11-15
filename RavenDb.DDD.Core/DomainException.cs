@@ -3,16 +3,12 @@ using System.Runtime.Serialization;
 
 namespace RavenDb.DDD.Core
 {
+    /// <summary>
+    /// Thrown when business rule is violated
+    /// </summary>
     [Serializable]
     public class DomainException : Exception
     {
-        //
-        // For guidelines regarding the creation of new exception types, see
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/cpconerrorraisinghandlingguidelines.asp
-        // and
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncscol/html/csharp07192001.asp
-        //
-
         public DomainException()
         {
         }

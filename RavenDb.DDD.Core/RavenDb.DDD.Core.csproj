@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RavenDb.DDD.Core</RootNamespace>
     <AssemblyName>RavenDb.DDD.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,7 @@
     <Compile Include="Events\DomainEvents.cs" />
     <Compile Include="Events\IDomainEvent.cs" />
     <Compile Include="Events\IPublishDomainEvent.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="ILoadAggregateRoot.cs" />
     <Compile Include="Events\ISubscribeTo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -48,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Primitives\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RavenDb.DDD.Core.nuspec" />
+    <None Include="Readme.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

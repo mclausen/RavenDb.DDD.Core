@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RavenDb.DDD.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Containing core classes for modelling a DDD Application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RavenDb.DDD.Core")]
