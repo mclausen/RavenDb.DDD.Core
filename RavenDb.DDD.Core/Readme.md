@@ -17,29 +17,29 @@ In order to support these event types a `IPublishDomainEvent` must be configured
 Here is an example using CastleWindsor
 
 *Step 1. Register 'ISubscribeTo' classes
-`
-container.Register(Classes.FromAssembly(...)
-					.BasedOn(typeof(ISubscribeTo<>)
-					.WithServiceAllInterfaces()
-					.LifeStyleTransient())
-`
+
+	container.Register(Classes.FromAssembly(...)
+		.BasedOn(typeof(ISubscribeTo<>)
+		.WithServiceAllInterfaces()
+		.LifeStyleTransient())
+
 *Step 2. Event publishing
 
-`
-class MyEventPublisher : IPublishDomainEvent
-{
-	public async Task Publish<TDomainEvent>(TDomainEvent domainEvent)
+
+	class MyEventPublisher : IPublishDomainEvent
 	{
-		var handlers = container.ResolveAll<ISubscribeTo<TDomainEvent>>();
-		foreach (var handler in handlers)
+		public async Task Publish<TDomainEvent>(TDomainEvent domainEvent)
 		{
-			await handler.Handle(domainEvent);
-			
-			container.release(handler);
+			var handlers = container.ResolveAll<ISubscribeTo<TDomainEvent>>();
+			foreach (var handler in handlers)
+			{
+				await handler.Handle(domainEvent);
+				
+				container.release(handler);
+			}
 		}
 	}
-}
-`
+
 
 #Reference
 `Reference` is use to store a path to another aggregate root
