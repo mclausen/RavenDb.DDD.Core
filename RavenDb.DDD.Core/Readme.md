@@ -11,6 +11,7 @@ This project contains core classes and domain services to quickly start modellin
 #Setting up AggregateRootLoader
 
 *step 1. Implement `ILoadAggregateRoot`
+
 	class MyAggregateRootLoader : ILoadAggregateRoot 
 	{
 		public Task<TAggregateRoot> LoadAggregateRootAsync<TAggregateRoot>(string aggregateRootId)
